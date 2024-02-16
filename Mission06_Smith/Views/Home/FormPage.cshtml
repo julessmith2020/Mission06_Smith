@@ -1,0 +1,54 @@
+﻿@model MovieForm
+
+
+<div class="everything">
+<div class="title">
+    <br />
+<h1>So you wanna add a new movie: </h1>
+</div>
+<div class="center">
+
+
+<div class="form-container">
+<form method="post">
+
+    <label asp-for="Category">Category:</label>
+    <input asp-for="Category"  />
+    <br />
+    <label asp-for="Subcategory">Subcategory:</label>
+    <input asp-for="Subcategory" />
+    <br />
+    <label asp-for="Title">Title:</label>
+    <input asp-for="Title" />
+    <br />
+    <label asp-for="Year">Year:</label>
+    <input asp-for="Year" />
+    <br />
+    <label asp-for="Director">Director:</label>
+    <input asp-for="Director" />
+    <br />
+    <label asp-for="Rating">Rating</label>
+    <select asp-for="Rating">
+        <option value="G">G</option>
+        <option value="PG">PG</option>
+        <option value="PG-13">PG-13</option>
+        <option value="R">R</option>
+    </select>
+    <br />
+    <label asp-for="Edited">Was the movie edited?</label>
+    <select asp-for="Edited">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select>
+    <br />
+    <label asp-for="Notes">Notes:</label>
+    <input asp-for="Notes" maxlength="25" />
+    <br />
+
+    <button type="submit">submit</button>
+</form>
+ 
+</div>
+</div>
+
+</div>
