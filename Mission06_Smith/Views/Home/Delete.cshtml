@@ -1,0 +1,17 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model MovieForm
+<div style="font-family: noct;">
+<h2>Confirm Deletion</h2>
+<h3>@Model.Title, Year: @Model.Year</h3>
+
+<form method="post">
+    <input type="hidden" asp-for="MovieId" />
+    <button type="submit" name="confirmed" value="true">Delete</button>
+    <a class="btn btn-info" asp-controller="Home" asp-action="Movielist">Cancel</a>
+</form>
+</div>

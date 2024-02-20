@@ -18,6 +18,10 @@
     src: url('/fonts/noct.otf') format('opentype');
 }
 
+.table {
+    font-family: noct;
+}
+
 body {
     background-color: #F7F3E3;
     color: #a42222;
@@ -330,7 +334,7 @@ body {
     padding-top: 190px;
 }
 
-..right {
+.right {
     flex: 1;
     display: flex;
     justify-content: center;
