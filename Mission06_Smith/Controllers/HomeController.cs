@@ -8,6 +8,7 @@ namespace Mission06_Smith.Controllers
 {
     public class HomeController : Controller
     {
+        // initialized the controller with the MovieFormContext
         private MovieFormContext _context;
 
         public HomeController(MovieFormContext temp)
@@ -20,6 +21,8 @@ namespace Mission06_Smith.Controllers
         {
             return View();
         }
+
+        // gets the form page with categories 
         public IActionResult FormPage() // allows categories to be diplayed
         {
             ViewBag.Categories = _context.Categories.ToList()
@@ -30,6 +33,8 @@ namespace Mission06_Smith.Controllers
         }
         [HttpPost]
 
+        // checks if the submitted form data is valid
+        // if valid adds the movie record to the database and redirects to the confirmation view
         public IActionResult FormPage(MovieForm response) // only allows valid input
         {
             if (ModelState.IsValid)
@@ -59,6 +64,11 @@ namespace Mission06_Smith.Controllers
                                  //.OrderBy(x => x.LastName).ToList();
         }
 
+
+        // Retrieves the movie record to edit from the database context
+        // checks if the movie exists
+        // retrieves categories from database and passes to view
+        // renders the form page view w movie record for editing
         public IActionResult Edit(int id)
         {
             var recordToEdit = _context.Movies.FirstOrDefault(x => x.MovieId == id);
@@ -71,6 +81,10 @@ namespace Mission06_Smith.Controllers
         }
         [HttpPost]
 
+        
+        // updates the movie information with the new data provided
+        // saves changes to the database
+        // redirects to the movie list page after editing
         public IActionResult Edit(MovieForm updatedInfo)
         {
 
@@ -84,6 +98,8 @@ namespace Mission06_Smith.Controllers
         {
             return View();
         }
+
+        // view for more info on joel
         public IActionResult MoreJoel()
         {
             return View();
@@ -91,7 +107,7 @@ namespace Mission06_Smith.Controllers
 
         [HttpGet]
         
-
+        // Retrieves the movie record to delete from the database context
         public IActionResult Delete(int id)
         {
             var recordToDelete = _context.Movies
@@ -102,6 +118,10 @@ namespace Mission06_Smith.Controllers
         }
 
         [HttpPost]
+
+        // Removes the movie from database context
+        // saves changes 
+        // redirects to the movie list after deletion
         public IActionResult Delete(MovieForm movie)
         {
             _context.Movies.Remove(movie);
