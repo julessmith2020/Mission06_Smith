@@ -10,6 +10,7 @@ namespace Mission06_Smith.Models
 
         [ForeignKey("CategoryId")]
         public int? CategoryId { get; set; }
+        [Required(ErrorMessage = "Category is required")]
         public MovieCategory? Category { get; set; }
 
         [Required(ErrorMessage = "Title is required")]
