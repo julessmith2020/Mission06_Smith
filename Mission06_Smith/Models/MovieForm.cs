@@ -9,8 +9,10 @@ namespace Mission06_Smith.Models
         public int MovieId { get; set; }
 
         [ForeignKey("CategoryId")]
-        public int? CategoryId { get; set; }
+
         [Required(ErrorMessage = "Category is required")]
+        public int? CategoryId { get; set; }
+        
         public MovieCategory? Category { get; set; }
 
         [Required(ErrorMessage = "Title is required")]
